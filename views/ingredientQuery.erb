@@ -1,0 +1,6 @@
+<p> Salut à toi <%= @name %> ! </p>
+<p>Quels sont tes ingredients, <%= @name %>? Mets des virgules entre chaque ingredient !</p>
+<form  action="/ingredient" method="post">
+  <input type="text" name="ingredient">
+   <input type="submit" value="submit">
+</form>

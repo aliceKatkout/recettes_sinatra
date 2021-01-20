@@ -1,0 +1,7 @@
+<p>Tes ingredients sont : <%= @ingredients_frigo %> </p>
+
+<p> tab recette = <%= @nomRecettes %> </p>
+
+<% if @nomRecettes.length >= 1 %>
+<p> Et si on cuisinait un(e) <%= @nomRecettes[0] %> ? </p>
+<%end %>
