@@ -1,0 +1,36 @@
+* {
+  font-family: Verdana, sans-serif;
+  margin-top: 0px;
+  margin-left: 0px;
+}
+
+body{
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+input{
+  border-radius: 10px;
+}
+
+header, footer {
+  text-align: center;
+  background-color: teal;
+  color: white;
+}
+
+footer{
+  position:fixed;
+  bottom:0px;
+  width: 100vw;
+}
+
+.container{
+  display:block;
+  margin: auto;
+}
+.content{
+  width: 70vw
+}
