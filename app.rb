@@ -24,6 +24,31 @@ def valid_recipes (json, ingredients_frigo)
   return nomRecettes
 end
 
+def cook_ingredients (json, recipe)
+  tabIngredients = []
+  json.each do |item|
+    if recipe == item["recipe_name"]
+      item["ingredients"].each do |key, value|
+        tabIngredients.push(key+ " : " +value)
+      end
+      return tabIngredients
+    end
+  end
+end
+
+def cook_steps (json, recipe)
+  tabSteps = []
+  json.each do |item|
+    if recipe == item["recipe_name"]
+      item["steps"].each do |step|
+        tabSteps.push(step)
+      end
+      return tabSteps
+    end
+  end
+end
+
+
 
 get '/' do
    erb:index
@@ -38,4 +63,15 @@ post '/ingredient' do
   @ingredients_frigo = params[:ingredient].split(",").map(&:strip).map(&:capitalize)
   @nomRecettes = valid_recipes(json, @ingredients_frigo)
   erb:recettes
+end
+
+post '/recipe' do
+ @recipe = params[:recipe]
+ @cook_ingredients = cook_ingredients(json, @recipe)
+ @cook_steps = cook_steps(json, @recipe)
+ erb:cook
+end
+
+get '/ingredientQuery.erb' do
+   erb:ingredientQuery
 end

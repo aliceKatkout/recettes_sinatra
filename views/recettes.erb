@@ -1,7 +1,23 @@
-<p>Tes ingredients sont : <%= @ingredients_frigo %> </p>
-
-<p> tab recette = <%= @nomRecettes %> </p>
-
 <% if @nomRecettes.length >= 1 %>
 <p> Et si on cuisinait un(e) <%= @nomRecettes[0] %> ? </p>
-<%end %>
+<% end %>
+<% @i = 0
+until @i == @nomRecettes.length-1
+  if @nomRecettes.length > 1
+    @i= @i+1 %>
+
+  <p> ou alors un(e) <%= @nomRecettes[@i] %> ? <br><p>
+
+<%  end
+end %>
+
+<form action="/recipe" method="post">
+  <label for="recipe">Alors, que veux-tu cuisiner ?</label>
+  <select id="recipe" name="recipe">
+  <% @nomRecettes.each do |recette| %>
+    <option value="<%= recette %>"> <%=  recette %> </option>
+    <% end %>
+
+  </select>
+  <input type="submit">
+</form>

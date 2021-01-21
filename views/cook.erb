@@ -1,0 +1,20 @@
+<h1> Time to cook the <%= @recipe %> ! </h1>
+
+<h2> Tu auras besoin de :</h2>
+
+<ul>
+<% @cook_ingredients.each do |e| %>
+<li> <%= e %> </li>
+<% end %>
+</ul>
+
+<h2> Voilà les étapes à suivre : </h2>
+
+<ul>
+<% @cook_steps.each do |step| %>
+<li> <%= step %> </li>
+<% end %>
+</ul>
+
+
+<button><a href="/ingredientQuery.erb"><b> Essayer avec d'autres ingrédients ! </b></a></button>
